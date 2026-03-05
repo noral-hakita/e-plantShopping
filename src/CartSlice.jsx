@@ -38,4 +38,3 @@ export const CartSlice = createSlice({
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
 // Task: Export the reducer as the default to use in store.js
-export default CartSlice.reducer;

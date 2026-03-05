@@ -9,7 +9,6 @@ function ProductList({ onHomeClick }) {
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
 
-    // Task: Retrieve total quantity of items in cart for the icon badge
     const cart = useSelector(state => state.cart.items);
     const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -51,6 +50,23 @@ function ProductList({ onHomeClick }) {
                     image: "https://images.unsplash.com/photo-1592729645009-b96d1e63d14b?q=80&w=1170&auto=format&fit=crop",
                     description: "Sweet fragrance, promotes relaxation.",
                     cost: "$18"
+                }
+            ]
+        },
+        {
+            category: "Succulents",
+            plants: [
+                {
+                    name: "Aloe Vera",
+                    image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/aloe-3283100_1280.jpg",
+                    description: "Soothing gel and easy to care for.",
+                    cost: "$10"
+                },
+                {
+                    name: "Jade Plant",
+                    image: "https://cdn.pixabay.com/photo/2016/06/19/08/19/jade-plant-1466164_1280.jpg",
+                    description: "Symbol of good luck and prosperity.",
+                    cost: "$15"
                 }
             ]
         }
