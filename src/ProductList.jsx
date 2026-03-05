@@ -4,12 +4,12 @@ import { addItem } from './CartSlice';
 import './ProductList.css';
 import CartItem from './CartItem';
 
-function ProductList() {
+function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false); 
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
 
-    // Task: Retrieve total quantity of items in cart for the icon
+    // Task: Retrieve total quantity of items in cart for the icon badge
     const cart = useSelector(state => state.cart.items);
     const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -90,7 +90,7 @@ function ProductList() {
                 <div className="tag">
                     <div className="luxury">
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-                        <a href="/" style={{textDecoration:'none'}}>
+                        <a href="#" onClick={(e) => onHomeClick(e)} style={{textDecoration:'none'}}>
                             <div>
                                 <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
                                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
@@ -99,7 +99,9 @@ function ProductList() {
                     </div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '1100px'}}>
-                    <div><a href="#" onClick={handleContinueShopping} style={{color: 'white', fontSize: '30px', textDecoration: 'none'}}>Plants</a></div>
+                    <div>
+                        <a href="#" onClick={handleContinueShopping} style={{color: 'white', fontSize: '30px', textDecoration: 'none'}}>Plants</a>
+                    </div>
                     <div>
                         <a href="#" onClick={handleCartClick} style={{color: 'white', fontSize: '30px', textDecoration: 'none'}}>
                             <h1 className='cart'>
