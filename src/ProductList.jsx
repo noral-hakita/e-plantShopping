@@ -6,10 +6,12 @@ import CartItem from './CartItem';
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false); 
-    const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
 
+    // Select items from the cart to track quantity and button states
     const cart = useSelector(state => state.cart.items);
+
+    // Dynamic calculation of total items for the navbar icon
     const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
     const plantsArray = [
@@ -94,10 +96,6 @@ function ProductList({ onHomeClick }) {
 
     const handleAddToCart = (product) => {
         dispatch(addItem(product));
-        setAddedToCart((prevState) => ({
-            ...prevState,
-            [product.name]: true,
-        }));
     };
 
     return (
@@ -149,10 +147,11 @@ function ProductList({ onHomeClick }) {
                                         <div className="product-cost">{plant.cost}</div>
                                         <button 
                                             className="product-button" 
-                                            disabled={addedToCart[plant.name]} 
+                                            // Disable button if plant exists in Redux store
+                                            disabled={cart.some(item => item.name === plant.name)} 
                                             onClick={() => handleAddToCart(plant)}
                                         >
-                                            {addedToCart[plant.name] ? 'Added' : 'Add to Cart'}
+                                            {cart.some(item => item.name === plant.name) ? 'Added' : 'Add to Cart'}
                                         </button>
                                     </div>
                                 ))}
