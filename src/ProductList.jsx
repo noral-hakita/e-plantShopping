@@ -7,11 +7,7 @@ import CartItem from './CartItem';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false); 
     const dispatch = useDispatch();
-
-    // Select items from the cart to track quantity and button states
     const cart = useSelector(state => state.cart.items);
-
-    // Dynamic calculation of total items for the navbar icon
     const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
     const plantsArray = [
@@ -60,13 +56,13 @@ function ProductList({ onHomeClick }) {
             plants: [
                 {
                     name: "Aloe Vera",
-                    image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/aloe-3283100_1280.jpg",
+                    image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?q=80&w=1064&auto=format&fit=crop",
                     description: "Soothing gel and easy to care for.",
                     cost: "$10"
                 },
                 {
                     name: "Jade Plant",
-                    image: "https://cdn.pixabay.com/photo/2016/06/19/08/19/jade-plant-1466164_1280.jpg",
+                    image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?q=80&w=1070&auto=format&fit=crop",
                     description: "Symbol of good luck and prosperity.",
                     cost: "$15"
                 }
@@ -124,7 +120,6 @@ function ProductList({ onHomeClick }) {
                                     <circle cx="184" cy="216" r="12" fill="white"></circle>
                                     <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" strokeWidth="8"></path>
                                 </svg>
-                                {/* Conditional Rendering: Badge only shows if totalQuantity > 0 */}
                                 {totalQuantity > 0 && (
                                     <span className='cart_quantity_count'>{totalQuantity}</span>
                                 )}

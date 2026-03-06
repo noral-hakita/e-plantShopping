@@ -170,27 +170,29 @@ body {
 }
 
 .cart_container {
-    position: relative; /* This keeps the number anchored to the icon */
+    position: relative;
     display: flex;
     align-items: center;
+    margin-right: 20px; /* Added margin to pull the icon away from the screen edge */
 }
 
 .cart_quantity_count {
     position: absolute;
-    top: -5px;         /* Positioned at the top right of the basket */
-    right: -10px;
-    background-color: #e74c3c; /* Red badge */
+    top: -5px;
+    right: -12px; /* Adjusted so it doesn't hit the edge */
+    background-color: #e74c3c;
     color: white;
     border-radius: 50%;
     height: 24px;
-    width: 24px;
+    min-width: 24px; /* Changed width to min-width for 2 digits */
+    padding: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
     font-weight: bold;
-    border: 2px solid white; /* Makes it stand out against the green navbar */
-    margin: 0; /* Removing old margins to prevent drifting */
+    border: 2px solid white;
+    box-sizing: content-box; /* Ensures padding doesn't shrink the circle */
 }
 
 .plantname_heading {
