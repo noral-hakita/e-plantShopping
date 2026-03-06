@@ -117,17 +117,18 @@ function ProductList({ onHomeClick }) {
                         <a href="#" onClick={handleContinueShopping} style={{color: 'white', fontSize: '30px', textDecoration: 'none'}}>Plants</a>
                     </div>
                     <div>
-                        <a href="#" onClick={handleCartClick} style={{color: 'white', fontSize: '30px', textDecoration: 'none'}}>
-                            <h1 className='cart'>
-                                <div className='cart_container'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="68" width="68">
-                                        <circle cx="80" cy="216" r="12"></circle>
-                                        <circle cx="184" cy="216" r="12"></circle>
-                                        <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" strokeWidth="2"></path>
-                                    </svg>
+                        <a href="#" onClick={handleCartClick} className="cart" style={{color: 'white', textDecoration: 'none'}}>
+                            <div className='cart_container'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="68" width="68">
+                                    <circle cx="80" cy="216" r="12" fill="white"></circle>
+                                    <circle cx="184" cy="216" r="12" fill="white"></circle>
+                                    <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" strokeWidth="8"></path>
+                                </svg>
+                                {/* Conditional Rendering: Badge only shows if totalQuantity > 0 */}
+                                {totalQuantity > 0 && (
                                     <span className='cart_quantity_count'>{totalQuantity}</span>
-                                </div>
-                            </h1>
+                                )}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -147,7 +148,6 @@ function ProductList({ onHomeClick }) {
                                         <div className="product-cost">{plant.cost}</div>
                                         <button 
                                             className="product-button" 
-                                            // Disable button if plant exists in Redux store
                                             disabled={cart.some(item => item.name === plant.name)} 
                                             onClick={() => handleAddToCart(plant)}
                                         >

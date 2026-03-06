@@ -160,24 +160,45 @@ body {
     width: 650px;
     font-size: 19px;
 }
-.cart{
+
+/* Updated Cart Styles */
+.cart {
     color: white;
     display: flex;
+    align-items: center;
+    text-decoration: none;
 }
-.cart_quantity_count{
-    margin-top: 16px;
-    /* background-color: red; */
-    margin-left: 27px;
-    position: absolute;
-    font-size: 29px;
 
+.cart_container {
+    position: relative; /* This keeps the number anchored to the icon */
+    display: flex;
+    align-items: center;
 }
-.plantname_heading{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-    /* background-color: yellow; */
+
+.cart_quantity_count {
+    position: absolute;
+    top: -5px;         /* Positioned at the top right of the basket */
+    right: -10px;
+    background-color: #e74c3c; /* Red badge */
+    color: white;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid white; /* Makes it stand out against the green navbar */
+    margin: 0; /* Removing old margins to prevent drifting */
 }
+
+.plantname_heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .plant_heading{
     width: 400px;
     text-align: center;
