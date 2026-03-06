@@ -179,7 +179,7 @@ body {
 .cart_quantity_count {
     position: absolute;
     top: -5px;
-    right: -12px; /* Adjusted so it doesn't hit the edge */
+    right: -16px; /* Adjusted so it doesn't hit the edge */
     background-color: #e74c3c;
     color: white;
     border-radius: 50%;
